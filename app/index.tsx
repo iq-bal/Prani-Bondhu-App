@@ -10,8 +10,21 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-      <Link href="/(auth)/login"> Go to login</Link>
+      <Text style={{ padding: 20 }}>
+        This Page is for conditional rendering, if the user is logged in take
+        him to home screen, otherwise login screen, will work on it later
+      </Text>
+      <Link
+        href="/(tabs)/home"
+        style={{
+          color: "white",
+          backgroundColor: "red",
+          padding: 30,
+          borderRadius: 10,
+        }}
+      >
+        Click here to Enter into the app prototype
+      </Link>
     </View>
   );
 }
