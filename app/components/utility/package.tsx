@@ -7,6 +7,33 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+import BookMark from "../vector/bookmark-svg";
+
+import {
+  useFonts,
+  AnekBangla_100Thin,
+  AnekBangla_200ExtraLight,
+  AnekBangla_300Light,
+  AnekBangla_400Regular,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  AnekBangla_700Bold,
+  AnekBangla_800ExtraBold,
+} from "@expo-google-fonts/anek-bangla";
+
+import {
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
+import FishSvg from "../vector/fish-svg";
+
 const screenWidth = Dimensions.get("window").width;
 
 interface PackageProps {
@@ -14,12 +41,41 @@ interface PackageProps {
 }
 
 const Package = ({ text }: PackageProps) => {
+  let [fontsLoadedAnek] = useFonts({
+    AnekBangla_100Thin,
+    AnekBangla_200ExtraLight,
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_700Bold,
+    AnekBangla_800ExtraBold,
+  });
+
+  let [fontsLoadedInter] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+
+  if (!fontsLoadedAnek || !fontsLoadedInter) {
+    return null;
+  }
+
   return (
     <View style={[styles.packageCard, { backgroundColor: "#F2E307" }]}>
       <Text style={styles.packageTitle}>ক্ষুদ্র খামারী</Text>
       {/* Circle with price */}
       <View style={styles.priceCircle}>
-        <Text style={styles.priceText}>মাসিক ২৯৯৳</Text>
+        <Text style={styles.priceText}>
+          মাসিক {"\n"} ২৯৯ {"\n"} ৳
+        </Text>
       </View>
       <View style={styles.packageFeatures}>
         <FeatureItem text="২ - ৩ টি দিঘীর হিসাব রাখুন" />
@@ -31,24 +87,9 @@ const Package = ({ text }: PackageProps) => {
       </TouchableOpacity>
       {/* Fish Icons inside the card */}
       <View style={styles.fishContainer}>
-        <Ionicons
-          name="fish"
-          size={35} // Increased size
-          color="#FCF269"
-          style={[styles.fishIcon, styles.fishIcon1]}
-        />
-        <Ionicons
-          name="fish"
-          size={35} // Increased size
-          color="#FCF269"
-          style={[styles.fishIcon, styles.fishIcon2]}
-        />
-        <Ionicons
-          name="fish"
-          size={35} // Increased size
-          color="#FCF269"
-          style={[styles.fishIcon, styles.fishIcon3]}
-        />
+        <FishSvg color="#FCF269" style={[styles.fishIcon, styles.fishIcon1]} />
+        <FishSvg color="#FCF269" style={[styles.fishIcon, styles.fishIcon2]} />
+        <FishSvg color="#FCF269" style={[styles.fishIcon, styles.fishIcon3]} />
       </View>
     </View>
   );
@@ -61,7 +102,7 @@ interface FeatureItemProps {
 // Component to render feature items with icon and text
 const FeatureItem = ({ text }: FeatureItemProps) => (
   <View style={styles.featureItem}>
-    <Ionicons name="bookmark-outline" size={20} color="#141F74" />
+    <BookMark style={{ marginTop: 4 }} />
     <Text style={styles.featureText}>{text}</Text>
   </View>
 );
@@ -81,10 +122,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
   },
   packageTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 15,
     marginBottom: 5,
     color: "#141F74",
+    fontFamily: "Inter_400Regular",
   },
   priceCircle: {
     position: "absolute",
@@ -99,9 +140,11 @@ const styles = StyleSheet.create({
     margin: -15,
   },
   priceText: {
-    color: "#000",
-    fontSize: 16,
-    fontWeight: "bold",
+    color: "#141F74",
+    fontSize: 12,
+    fontFamily: "AnekBangla_400Regular",
+    lineHeight: 19,
+    transform: "translateY(10px)",
   },
   packageFeatures: {
     marginBottom: 10,
@@ -113,11 +156,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   featureText: {
-    marginLeft: 10, // Increased margin for better spacing
-    fontSize: screenWidth < 350 ? 14 : 16, // Responsive font size
+    marginLeft: 10,
+    // fontSize: screenWidth < 350 ? 14 : 16, // Responsive font size
+    fontSize: 12,
+    fontFamily: "Inter_400Regular",
     color: "#141F74",
-    flexShrink: 1, // Allow text to wrap if it's too long
-    flex: 1, // Take up remaining space
+    flexShrink: 1,
+    flex: 1,
+    zIndex: 100,
   },
   packageButton: {
     backgroundColor: "#141F74",
@@ -127,29 +173,27 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: "#FFFFFF",
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 15,
+    fontFamily: "Inter_400Regular",
   },
   fishContainer: {
     position: "absolute",
     right: 10,
     top: "50%",
-    transform: [{ translateY: -50 }], // Adjust to vertically center
-    flexDirection: "column", // Align items in a column
+    transform: [{ translateY: -40 }],
+    flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
   },
-  fishIcon: {
-    marginVertical: 3, // Adjust spacing between icons vertically
-  },
+  fishIcon: {},
   fishIcon1: {
-    transform: [{ rotate: "10deg" }], // Rotate slightly
+    transform: [{ rotate: "10deg" }],
   },
   fishIcon2: {
-    transform: [{ rotate: "-10deg" }], // Rotate in the opposite direction
+    transform: [{ rotate: "-10deg" }],
   },
   fishIcon3: {
-    transform: [{ rotate: "20deg" }], // Rotate more
+    transform: [{ rotate: "20deg" }],
   },
 });
 

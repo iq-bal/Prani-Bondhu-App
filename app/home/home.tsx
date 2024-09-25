@@ -8,6 +8,18 @@ import WeatherSvg from "../components/vector/weather-svg";
 import Fishing from "../components/utility/fishing";
 import Package from "../components/utility/package";
 
+import {
+  useFonts,
+  AnekBangla_100Thin,
+  AnekBangla_200ExtraLight,
+  AnekBangla_300Light,
+  AnekBangla_400Regular,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  AnekBangla_700Bold,
+  AnekBangla_800ExtraBold,
+} from "@expo-google-fonts/anek-bangla";
+
 const Home = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
 
@@ -18,6 +30,21 @@ const Home = () => {
   const closeSidebar = () => {
     setSidebarVisible(false);
   };
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_100Thin,
+    AnekBangla_200ExtraLight,
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_700Bold,
+    AnekBangla_800ExtraBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ParentContainer>
@@ -66,14 +93,14 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   mainTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#000000",
+    fontSize: 20,
+    // color: "#000000",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   subtitle: {
-    fontSize: 13,
-    color: "rgba(0, 0, 0, 1)",
-    fontWeight: "100",
+    fontSize: 12,
+    // color: "rgba(0, 0, 0, 1)",
+    fontFamily: "AnekBangla_300Light",
   },
 });
 

@@ -1,7 +1,14 @@
+import { AnekBangla_500Medium, useFonts } from "@expo-google-fonts/anek-bangla";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const CategoryButtons = () => {
+  let [isLoaded] = useFonts({
+    AnekBangla_500Medium,
+  });
+  if (!isLoaded) {
+    return null;
+  }
   return (
     <View style={styles.container}>
       {/* First Button: Highlighted */}
@@ -47,7 +54,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 14,
     color: "#000",
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_500Medium",
   },
   highlightedButtonText: {
     color: "rgba(86, 103, 229, 1)", // Blue text

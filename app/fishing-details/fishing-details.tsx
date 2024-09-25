@@ -10,8 +10,20 @@ import ParentContainer from "../components/utility/parent-container";
 import Header from "../components/utility/header";
 import Fishing from "../components/utility/fishing";
 import { router } from "expo-router";
+import {
+  useFonts,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+} from "@expo-google-fonts/anek-bangla";
 
 const FishingDetails = () => {
+  let [fontsLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <ParentContainer>
       <Header
@@ -53,16 +65,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25, // Adjust size for emphasis
-    fontWeight: "600", // Bold text for the title
-    color: "#000000", // Black color
+    // color: "#000000", // Black color
     textAlign: "center",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   subtitle: {
-    fontSize: 12, // Slightly smaller font size for the subtitle
-    color: "rgba(63, 82, 227, 1)", // Blue color similar to the image
-    marginTop: 4, // Slight spacing between title and subtitle
+    fontSize: 11,
+    color: "rgba(63, 82, 227, 1)",
+    marginTop: 4,
     textAlign: "center",
     fontWeight: "500",
+    fontFamily: "AnekBangla_500Medium",
   },
 });
 

@@ -1,3 +1,4 @@
+import { AnekBangla_500Medium, useFonts } from "@expo-google-fonts/anek-bangla";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
 
 interface CashRecordProps {
@@ -35,6 +36,14 @@ function CashRecord({ btnExist }: CashRecordProps) {
       remaining: "৩,৫০০",
     },
   ];
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_500Medium,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <View style={styles.cashRecordsContainer}>
@@ -89,8 +98,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   cashRecordsTitle: {
-    fontSize: 18,
-    fontWeight: "500",
+    fontSize: 13,
+    // fontWeight: "500",
+    fontFamily: "AnekBangla_500Medium",
     color: "rgba(0, 0, 0, 1)",
   },
   receiveButton: {
@@ -101,8 +111,8 @@ const styles = StyleSheet.create({
   },
   receiveButtonText: {
     color: "rgba(255, 255, 255, 1)",
-    fontWeight: "500",
-    fontSize: 15,
+    fontFamily: "AnekBangla_500Medium",
+    fontSize: 12,
   },
   recordRow: {
     flexDirection: "row",
@@ -124,15 +134,15 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
   },
   recordLabel: {
-    fontSize: 12,
+    fontSize: 8,
     color: "rgba(86, 103, 229, 1)",
-    fontWeight: "500",
+    fontFamily: "AnekBangla_500Medium",
     textAlign: "center",
   },
   recordValue: {
-    fontSize: 14,
-    fontWeight: "500",
-    color: "rgba(0, 0, 0, 1)",
+    fontSize: 12,
+    fontFamily: "AnekBangla_500Medium",
+    // color: "rgba(0, 0, 0, 1)",
     textAlign: "center",
   },
 });

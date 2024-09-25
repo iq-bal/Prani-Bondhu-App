@@ -11,6 +11,12 @@ import {
 } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import {
+  useFonts,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  AnekBangla_400Regular,
+} from "@expo-google-fonts/anek-bangla";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -40,6 +46,16 @@ const FormField: React.FC<FormFieldProps> = ({
   onCustomerCare,
 }) => {
   const [selectedField, setSelectedField] = useState<number | null>(null);
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_400Regular,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -164,14 +180,16 @@ const styles = StyleSheet.create({
   },
   customerCareText: {
     color: "rgba(20, 31, 116, 1)",
-    fontSize: 12,
+    fontSize: 10,
+    fontFamily: "AnekBangla_600SemiBold",
   },
   inputGroup: {
     marginBottom: 0,
   },
   label: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 14,
+    fontFamily: "AnekBangla_500Medium",
     marginBottom: 5,
     marginTop: 5,
   },
@@ -189,7 +207,8 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: "#fff",
-    fontSize: 16,
+    fontSize: 13,
+    fontFamily: "AnekBangla_400Regular",
     paddingVertical: 8,
   },
   dateInput: {
@@ -202,6 +221,7 @@ const styles = StyleSheet.create({
     color: "rgba(228, 248, 0, 1)",
     fontSize: 12,
     marginTop: 3,
+    fontFamily: "AnekBangla_500Medium",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -216,7 +236,8 @@ const styles = StyleSheet.create({
   },
   cancelButtonText: {
     color: "#fff",
-    fontSize: 14,
+    fontSize: 12,
+    fontFamily: "AnekBangla_600SemiBold",
   },
   submitButton: {
     backgroundColor: "rgba(255, 255, 255, 1)",
@@ -226,7 +247,8 @@ const styles = StyleSheet.create({
   },
   submitButtonText: {
     color: "rgba(0, 0, 0, 1)",
-    fontSize: 14,
+    fontSize: 12,
+    fontFamily: "AnekBangla_600SemiBold",
   },
 });
 

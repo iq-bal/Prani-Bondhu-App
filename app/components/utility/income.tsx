@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
+import { AnekBangla_500Medium, useFonts } from "@expo-google-fonts/anek-bangla";
 
 const screenWidth = Dimensions.get("window").width;
 const containerPadding = 10; // Adjust this as necessary
@@ -47,6 +48,14 @@ function Income({ type, data, isTouchable, onPress }: IncomeProps) {
   const ContainerComponent = (
     isTouchable ? TouchableOpacity : View
   ) as React.ElementType;
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_500Medium,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <View style={styles.cardContainer}>
@@ -179,6 +188,7 @@ const styles = StyleSheet.create({
 
   cardLabel: {
     fontSize: 10,
+    fontFamily: "AnekBangla_500Medium",
     color: "rgba(0, 0, 0, 0.25)",
     textAlign: "center", // Center align the text within the column
     flexWrap: "wrap", // Ensure text wraps within the cell
@@ -186,8 +196,8 @@ const styles = StyleSheet.create({
 
   cardValue: {
     fontSize: 12,
-    fontWeight: "bold",
-    color: "rgba(0, 0, 0, 1)",
+    fontFamily: "AnekBangla_500Medium",
+    // color: "rgba(0, 0, 0, 1)",
     textAlign: "center", // Center align the text within the column
     flexWrap: "wrap", // Ensure text wraps within the cell
   },

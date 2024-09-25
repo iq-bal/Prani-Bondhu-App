@@ -8,6 +8,18 @@ import {
 } from "react-native";
 import { router } from "expo-router";
 
+import {
+  useFonts,
+  AnekBangla_100Thin,
+  AnekBangla_200ExtraLight,
+  AnekBangla_300Light,
+  AnekBangla_400Regular,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  AnekBangla_700Bold,
+  AnekBangla_800ExtraBold,
+} from "@expo-google-fonts/anek-bangla";
+
 const data = [
   {
     id: "1",
@@ -144,6 +156,21 @@ const Fishing = ({
     ? data.filter((item) => item.isActive)
     : data;
 
+  let [fontsLoaded] = useFonts({
+    AnekBangla_100Thin,
+    AnekBangla_200ExtraLight,
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_700Bold,
+    AnekBangla_800ExtraBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.fishingContainer}>
       <TouchableOpacity onPress={onPress} style={styles.header}>
@@ -180,13 +207,15 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   headerText: {
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "#333",
+    fontSize: 16,
+    // fontWeight: "bold",
+    // color: "#333",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   subHeaderText: {
-    fontSize: 14,
-    color: "#D81B60",
+    fontSize: 11,
+    color: "#EE57A4",
+    fontFamily: "AnekBangla_500Medium",
   },
   tableHeader: {
     flexDirection: "row",
@@ -196,9 +225,9 @@ const styles = StyleSheet.create({
   columnHeader: {
     flex: 1,
     fontSize: 11,
-    fontWeight: "bold",
-    color: "#555",
+    // color: "#555",
     textAlign: "center",
+    fontFamily: "AnekBangla_400Regular",
   },
   listItem: {
     flexDirection: "row",
@@ -219,8 +248,9 @@ const styles = StyleSheet.create({
   column: {
     flex: 1,
     fontSize: 8,
-    color: "#000000",
+    // color: "#000000",
     textAlign: "center",
+    fontFamily: "AnekBangla_400Regular",
   },
   separator: {
     width: 1,

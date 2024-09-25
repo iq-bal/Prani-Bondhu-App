@@ -1,7 +1,19 @@
+import {
+  useFonts,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+} from "@expo-google-fonts/anek-bangla";
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 const FinancialSummary = () => {
+  let [isLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+  if (!isLoaded) {
+    return null;
+  }
   return (
     <View style={styles.container}>
       {/* First Row: মোট আয়, মোট ব্যয়, মোট পাওনা */}
@@ -67,7 +79,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#555",
     marginBottom: 5,
-    fontWeight: "100",
+    // fontWeight: "100",
+    fontFamily: "AnekBangla_500Medium",
   },
   card: {
     backgroundColor: "#FFF",
@@ -84,7 +97,8 @@ const styles = StyleSheet.create({
   cardValue: {
     fontSize: 12,
     color: "#000",
-    fontWeight: "bold",
+    // fontWeight: "bold",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   fullWidthCardContainer: {
     flex: 2, // Span across two columns
@@ -95,7 +109,7 @@ const styles = StyleSheet.create({
   highlightedCardValue: {
     fontSize: 12,
     color: "#FFF",
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_600SemiBold",
   },
 });
 

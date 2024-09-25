@@ -3,6 +3,18 @@ import { View, TouchableOpacity, StyleSheet, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import CustomMenuIcon from "./custom-menu-icon";
 
+import {
+  useFonts,
+  AnekBangla_100Thin,
+  AnekBangla_200ExtraLight,
+  AnekBangla_300Light,
+  AnekBangla_400Regular,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  AnekBangla_700Bold,
+  AnekBangla_800ExtraBold,
+} from "@expo-google-fonts/anek-bangla";
+
 interface HeaderProps {
   title?: string;
   children?: ReactNode;
@@ -30,6 +42,21 @@ function Header({
         return "center";
     }
   };
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_100Thin,
+    AnekBangla_200ExtraLight,
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_700Bold,
+    AnekBangla_800ExtraBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <View style={styles.header}>
@@ -67,10 +94,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   headerTitle: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#000",
+    fontSize: 25,
     textAlign: "center",
+    fontFamily: "AnekBangla_600SemiBold",
   },
 });
 

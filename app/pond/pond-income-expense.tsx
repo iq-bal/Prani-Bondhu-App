@@ -87,7 +87,7 @@ function PondIncomeExpense() {
     <ParentContainer>
       <Header
         onIconPress={() => {
-          router.push("/components/pond/pond-component");
+          router.push("/pond/pond-component");
         }}
         title="ইলিশ দীঘি"
         alignment="right"

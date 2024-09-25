@@ -14,11 +14,26 @@ import CategoryButtons from "../components/utility/category-button";
 import Income from "../components/utility/income";
 import PlusIcon from "../components/utility/plus-icon";
 import { router } from "expo-router";
+import {
+  useFonts,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+} from "@expo-google-fonts/anek-bangla";
 
 const CultivationDetails = () => {
   const handleBackPress = () => {
     router.push("/pond/pond-component");
   };
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <ParentContainer>
       <Header onIconPress={handleBackPress} alignment="right">
@@ -35,7 +50,7 @@ const CultivationDetails = () => {
         </View>
       </Header>
       <View style={styles.matha}>
-        <Text style={styles.mathaText}>ইলিশ দিঘী</Text>
+        <Text style={styles.mathaText}>১২ তম চাষ</Text>
         <Text style={styles.upoMathaText}>চলমান রয়েছে</Text>
       </View>
 
@@ -136,11 +151,12 @@ const styles = StyleSheet.create({
     // padding: 10,
   },
   headerText: {
-    fontSize: 14,
+    fontSize: 12,
     color: "rgba(0, 0, 0, 1)",
     textAlign: "center",
     marginBottom: 5,
-    fontWeight: "100",
+    // fontWeight: "100",
+    fontFamily: "AnekBangla_500Medium",
   },
   dateContainer: {
     flexDirection: "row",
@@ -151,7 +167,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#000",
     marginRight: 5,
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   timeContainer: {
     flexDirection: "row",
@@ -163,19 +179,20 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#000",
     marginRight: 15,
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   matha: {
     marginBottom: 16,
   },
   mathaText: {
-    fontSize: 28,
-    fontWeight: "bold",
+    fontSize: 25,
+    fontFamily: "AnekBangla_600SemiBold",
     color: "#333",
   },
   upoMathaText: {
-    fontSize: 15,
+    fontSize: 14,
     color: "rgba(86, 103, 229, 1)",
+    fontFamily: "AnekBangla_500Medium",
   },
   buttonContainer: {
     flexDirection: "row",
@@ -207,8 +224,8 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   buttonText: {
-    fontSize: 9, // Adjusted font size for better fit
-    fontWeight: "bold",
+    fontSize: 10, // Adjusted font size for better fit
+    fontFamily: "AnekBangla_500Medium",
   },
   scrollContainer: {
     marginVertical: 20,
@@ -235,12 +252,12 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "#555",
     marginBottom: 5,
-    fontWeight: "100",
+    fontFamily: "AnekBangla_500Medium",
   },
   cardValue: {
-    fontSize: 15,
+    fontSize: 12,
     color: "#000",
-    fontWeight: "600",
+    fontFamily: "AnekBangla_600SemiBold",
   },
 });
 

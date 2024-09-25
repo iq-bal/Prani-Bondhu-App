@@ -17,6 +17,18 @@ import PlusIcon from "../components/utility/plus-icon";
 import FormField from "../components/utility/form-field";
 import { router } from "expo-router";
 
+import {
+  useFonts,
+  AnekBangla_100Thin,
+  AnekBangla_200ExtraLight,
+  AnekBangla_300Light,
+  AnekBangla_400Regular,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  AnekBangla_700Bold,
+  AnekBangla_800ExtraBold,
+} from "@expo-google-fonts/anek-bangla";
+
 const screenWidth = Dimensions.get("window").width;
 
 function PondComponent() {
@@ -193,6 +205,20 @@ function PondComponent() {
       ? expenseFields
       : cultivationFields;
 
+  let [fontsLoaded] = useFonts({
+    AnekBangla_100Thin,
+    AnekBangla_200ExtraLight,
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_700Bold,
+    AnekBangla_800ExtraBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <ParentContainer>
       <Header
@@ -225,7 +251,9 @@ function PondComponent() {
               <Ionicons name="calendar" size={16} color="#5667E5" />
               <Text style={styles.infoCardTitle}>৭ই ডিসেম্বর, ২০২৪</Text>
             </View>
-            <View style={styles.infoCardRow}>
+            <View
+              style={{ ...styles.infoCardRow, transform: "translateX(-5px)" }}
+            >
               <Ionicons name="stopwatch" size={16} color="#5667E5" />
               <Text style={styles.infoCardTitle}>সকাল ১২ : ৪৫ টা</Text>
             </View>
@@ -408,19 +436,20 @@ const styles = StyleSheet.create({
   addButtonText: {
     color: "#5667E5",
     marginLeft: 5,
-    fontSize: 14,
+    fontSize: 12,
+    fontFamily: "AnekBangla_500Medium",
   },
   titleSection: {
     marginBottom: 20,
   },
   mainTitle: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: "#000000",
+    fontSize: 25,
+    fontFamily: "AnekBangla_600SemiBold",
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 14,
     color: "#5667E5",
+    fontFamily: "AnekBangla_500Medium",
   },
 
   infoCardsContainer: {
@@ -437,8 +466,7 @@ const styles = StyleSheet.create({
 
   cardTitle: {
     fontSize: 12,
-    fontWeight: "bold",
-    color: "#5B6C8F",
+    fontFamily: "AnekBangla_500Medium",
     marginBottom: 5,
   },
 
@@ -476,8 +504,9 @@ const styles = StyleSheet.create({
 
   infoCardTitle: {
     fontSize: 12,
-    fontWeight: "bold",
-    color: "#000",
+    // fontWeight: "bold",
+    // color: "#000",
+    fontFamily: "AnekBangla_600SemiBold",
     marginLeft: 5,
   },
 
@@ -489,13 +518,15 @@ const styles = StyleSheet.create({
   },
   totalText: {
     color: "#fff",
-    fontSize: 18,
+    fontSize: 16,
     textAlign: "center",
+    fontFamily: "AnekBangla_600SemiBold",
   },
 
   horizontalScrollTitle: {
-    fontSize: 14,
-    color: "#000000",
+    fontSize: 12,
+    // color: "#000000",
+    fontFamily: "AnekBangla_500Medium",
   },
 
   horizontalScroll: {
@@ -527,18 +558,18 @@ const styles = StyleSheet.create({
 
   scrollCardTitle: {
     fontSize: 12,
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_600SemiBold",
   },
 
   scrollCardStatus: {
     fontSize: 12,
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_600SemiBold",
   },
 
   scrollCardAmount: {
-    fontSize: 14,
-    fontWeight: "bold",
-    color: "#000000",
+    fontSize: 12,
+    fontFamily: "AnekBangla_600SemiBold",
+    // color: "#000000",
     marginTop: 10,
   },
 
@@ -563,9 +594,8 @@ const styles = StyleSheet.create({
   },
   tabText: {
     fontSize: 14,
-
     color: "background: rgba(86, 103, 229, 1)",
-    fontWeight: "500",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   activeTabText: {
     color: "rgba(255, 255, 255, 1)",

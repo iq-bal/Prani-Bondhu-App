@@ -11,8 +11,23 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { router } from "expo-router";
+import {
+  useFonts,
+  AnekBangla_400Regular,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+} from "@expo-google-fonts/anek-bangla";
 
 const UserProfile = () => {
+  let [fontsLoaded] = useFonts({
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
     <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -82,7 +97,7 @@ const UserProfile = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    // backgroundColor: "#fff",
   },
   scrollContainer: {
     alignItems: "center",
@@ -100,13 +115,14 @@ const styles = StyleSheet.create({
   },
   name: {
     color: "#fff",
-    fontSize: 22,
-    fontWeight: "bold",
+    fontSize: 20,
+    fontFamily: "AnekBangla_600SemiBold",
   },
   joinDate: {
     color: "#fff",
-    fontSize: 14,
+    fontSize: 12,
     marginTop: 5,
+    fontFamily: "AnekBangla_400Regular",
   },
   profileImage: {
     width: 100,
@@ -123,13 +139,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#13257A",
     paddingVertical: 8,
     paddingHorizontal: 16,
-    borderRadius: 20,
+    borderRadius: 10,
     marginTop: 70,
   },
   editText: {
     color: "#fff",
     marginLeft: 5,
-    fontSize: 14,
+    fontSize: 12,
+    fontFamily: "AnekBangla_500Medium",
   },
   infoContainer: {
     width: "90%",
@@ -142,9 +159,10 @@ const styles = StyleSheet.create({
   },
   infoText: {
     marginLeft: 10,
-    fontSize: 16,
+    fontSize: 18,
     color: "#000",
     flex: 1,
+    fontFamily: "AnekBangla_400Regular",
   },
   rightIconContainer: {
     marginLeft: "auto", // Pushes the icon to the right
@@ -165,8 +183,9 @@ const styles = StyleSheet.create({
   },
   logoutText: {
     color: "#fff",
-    fontSize: 16,
+    fontSize: 15,
     textAlign: "center",
+    fontFamily: "AnekBangla_500Medium",
   },
 });
 

@@ -5,6 +5,11 @@ import FishSvg from "../components/vector/fish-svg";
 import ParentContainer from "../components/utility/parent-container";
 import Header from "../components/utility/header";
 import { useRouter } from "expo-router";
+import {
+  useFonts,
+  AnekBangla_400Regular,
+  AnekBangla_600SemiBold,
+} from "@expo-google-fonts/anek-bangla";
 
 const ProjectGroups = () => {
   const router = useRouter();
@@ -16,6 +21,15 @@ const ProjectGroups = () => {
   const handleCardPress = () => {
     router.push("/packages/premium-packages");
   };
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_400Regular,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <ParentContainer>
@@ -49,9 +63,9 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
+    fontSize: 25,
     textAlign: "center",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   scrollContainer: {
     paddingBottom: 20,
@@ -113,15 +127,15 @@ const styles = StyleSheet.create({
     top: -30,
   },
   cardTitle: {
-    fontSize: 22,
+    fontSize: 24,
     color: "#fff",
     marginBottom: 10,
-    fontWeight: "900",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   cardSubtitle: {
-    fontSize: 13,
-    color: "#D1D1D1",
-    fontWeight: "200",
+    fontSize: 10,
+    color: "#fff",
+    fontFamily: "AnekBangla_400Regular",
   },
 });
 

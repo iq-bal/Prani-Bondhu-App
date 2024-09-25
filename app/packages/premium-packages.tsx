@@ -15,6 +15,19 @@ import ParentContainer from "../components/utility/parent-container";
 import { useRouter } from "expo-router";
 import { BlurView } from "expo-blur";
 import FormField from "../components/utility/form-field";
+import Package from "../components/utility/package";
+import PondCard from "../components/utility/pond-card";
+import {
+  useFonts,
+  AnekBangla_100Thin,
+  AnekBangla_200ExtraLight,
+  AnekBangla_300Light,
+  AnekBangla_400Regular,
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  AnekBangla_700Bold,
+  AnekBangla_800ExtraBold,
+} from "@expo-google-fonts/anek-bangla";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -74,6 +87,22 @@ const PremiumPackageScreen = () => {
       required: false,
     },
   ];
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_100Thin,
+    AnekBangla_200ExtraLight,
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_700Bold,
+    AnekBangla_800ExtraBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <ParentContainer>
       <Header
@@ -87,79 +116,9 @@ const PremiumPackageScreen = () => {
         horizontal
         contentContainerStyle={styles.packageScroll}
       >
-        <View style={[styles.packageCard, { backgroundColor: "#F2E307" }]}>
-          <Text style={styles.packageTitle}>ক্ষুদ্র খামারী</Text>
-          {/* Circle with price */}
-          <View style={styles.priceCircle}>
-            <Text style={styles.priceText}>মাসিক ২৯৯৳</Text>
-          </View>
-          <View style={styles.packageFeatures}>
-            <FeatureItem text="২ - ৩ টি দিঘীর হিসাব রাখুন" />
-            <FeatureItem text="প্রতিটি দিঘীতে একাধিক চাষ করুন" />
-            <FeatureItem text="দিঘির হিসাব, মাছের হিসাব, মোট আয়/ব্যয়/লাভ/ক্ষতির হিসাব পান সহজেই" />
-          </View>
-          <TouchableOpacity style={styles.packageButton}>
-            <Text style={styles.buttonText}>এখনি কিনুন</Text>
-          </TouchableOpacity>
-          {/* Fish Icons inside the card */}
-          <View style={styles.fishContainer}>
-            <Ionicons
-              name="fish"
-              size={35} // Increased size
-              color="#FCF269"
-              style={[styles.fishIcon, styles.fishIcon1]}
-            />
-            <Ionicons
-              name="fish"
-              size={35} // Increased size
-              color="#FCF269"
-              style={[styles.fishIcon, styles.fishIcon2]}
-            />
-            <Ionicons
-              name="fish"
-              size={35} // Increased size
-              color="#FCF269"
-              style={[styles.fishIcon, styles.fishIcon3]}
-            />
-          </View>
-        </View>
-
-        {/* Additional Package Card as needed */}
-        <View style={[styles.packageCard, { backgroundColor: "#F2E307" }]}>
-          <Text style={styles.packageTitle}>মাঝারী খামারী</Text>
-          {/* Circle with price */}
-          <View style={styles.priceCircle}>
-            <Text style={styles.priceText}>মাসিক ৪৯৯৳</Text>
-          </View>
-          <View style={styles.packageFeatures}>
-            <FeatureItem text="৬ টি দিঘীর হিসাব রাখুন" />
-            <FeatureItem text="প্রতিটি দিঘীতে একাধিক চাষ করুন" />
-            <FeatureItem text="দিঘির হিসাব, মাছের হিসাব, মোট আয়/ব্যয়/লাভ/ক্ষতির হিসাব পান সহজেই" />
-          </View>
-          <TouchableOpacity style={styles.packageButton}>
-            <Text style={styles.buttonText}>এখনি কিনুন</Text>
-          </TouchableOpacity>
-          <View style={styles.fishContainer}>
-            <Ionicons
-              name="fish"
-              size={35} // Slightly smaller size
-              color="#FCF269"
-              style={[styles.fishIcon, styles.fishIcon1]}
-            />
-            <Ionicons
-              name="fish"
-              size={35} // Slightly smaller size
-              color="#FCF269"
-              style={[styles.fishIcon, styles.fishIcon2]}
-            />
-            <Ionicons
-              name="fish"
-              size={35} // Slightly smaller size
-              color="#FCF269"
-              style={[styles.fishIcon, styles.fishIcon3]}
-            />
-          </View>
-        </View>
+        <Package text="এখনি কিনুন" />
+        <Package text="এখনি কিনুন" />
+        <Package text="এখনি কিনুন" />
       </ScrollView>
 
       {/* Total Pond Section */}
@@ -209,71 +168,10 @@ const PremiumPackageScreen = () => {
             />
           </View>
         </TouchableOpacity>
-
-        {/* Regular Pond Card */}
-        <TouchableOpacity
-          onPress={() => {
-            router.push("/pond/pond-component");
-          }}
-          style={styles.pondCard}
-        >
-          <View style={styles.pondCircle} />
-          <Text style={styles.pondTitle}>দিঘী ১</Text>
-          <View style={styles.pondDetailsContainer}>
-            <Text style={styles.pondDetails}>৪ মাস, ৯ দিন চলমান</Text>
-            <Text style={styles.pondDate}>২৩ সেপ্টেম্বর, ২০২৪ খোলা হয়েছে</Text>
-          </View>
-          <View style={styles.triangleFishContainer2}>
-            <Ionicons
-              name="fish"
-              size={24}
-              color="#7EA1FF"
-              style={[styles.triangleFishIcon, styles.triangleFishIcon1]}
-            />
-            <Ionicons
-              name="fish"
-              size={24}
-              color="#7EA1FF"
-              style={[styles.triangleFishIcon, styles.triangleFishIcon2]}
-            />
-            <Ionicons
-              name="fish"
-              size={24}
-              color="#7EA1FF"
-              style={[styles.triangleFishIcon, styles.triangleFishIcon3]}
-            />
-          </View>
-        </TouchableOpacity>
-
-        {/* Another Regular Pond Card */}
-        <View style={styles.pondCard}>
-          <View style={styles.pondCircle} />
-          <Text style={styles.pondTitle}>দিঘী ১</Text>
-          <View style={styles.pondDetailsContainer}>
-            <Text style={styles.pondDetails}>৪ মাস, ৯ দিন চলমান</Text>
-            <Text style={styles.pondDate}>২৩ সেপ্টেম্বর, ২০২৪ খোলা হয়েছে</Text>
-          </View>
-          <View style={styles.triangleFishContainer2}>
-            <Ionicons
-              name="fish"
-              size={24}
-              color="#7EA1FF"
-              style={[styles.triangleFishIcon, styles.triangleFishIcon1]}
-            />
-            <Ionicons
-              name="fish"
-              size={24}
-              color="#7EA1FF"
-              style={[styles.triangleFishIcon, styles.triangleFishIcon2]}
-            />
-            <Ionicons
-              name="fish"
-              size={24}
-              color="#7EA1FF"
-              style={[styles.triangleFishIcon, styles.triangleFishIcon3]}
-            />
-          </View>
-        </View>
+        <PondCard />
+        <PondCard />
+        <PondCard />
+        <PondCard />
       </View>
       <Modal visible={isFormVisible} transparent={true} animationType="fade">
         <BlurView intensity={100} tint="light" style={styles.overlay}>
@@ -394,15 +292,14 @@ const styles = StyleSheet.create({
 
   totalPondText: {
     fontSize: 25,
-    fontWeight: "bold",
-    color: "#000",
     textAlign: "right",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   subText: {
-    fontSize: 16,
-    color: "#8E8E93",
+    fontSize: 14,
     textAlign: "right",
     marginBottom: 20,
+    fontFamily: "AnekBangla_500Medium",
   },
 
   searchContainer: {
@@ -411,10 +308,11 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 50,
-    borderRadius: 10,
+    borderRadius: 20,
     backgroundColor: "#FFF",
     paddingHorizontal: 20,
-    fontSize: 16,
+    fontSize: 12,
+    fontFamily: "AnekBangla_500Medium",
     elevation: 5,
     shadowColor: "#000",
     shadowOpacity: 0.1,
@@ -446,18 +344,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     alignItems: "center",
     justifyContent: "center",
-    // borderStyle: "dashed",
-    // borderColor: "#6565FF",
-    // borderWidth: 2,
     position: "relative",
   },
 
   addPondText: {
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 15,
     color: "#5667E5",
     marginTop: 10,
     marginBottom: 20,
+    fontFamily: "AnekBangla_600SemiBold",
   },
 
   addFishContainer: {

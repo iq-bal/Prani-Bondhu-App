@@ -13,6 +13,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 
 import { useRouter } from "expo-router";
+import {
+  AnekBangla_300Light,
+  AnekBangla_400Regular,
+  AnekBangla_600SemiBold,
+} from "@expo-google-fonts/anek-bangla";
 
 interface SidebarProps {
   visible: boolean;
@@ -178,13 +183,15 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   name: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: 15,
+    // fontWeight: "bold",
     color: "rgba(255, 255, 255, 1)",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   role: {
-    fontSize: 12,
+    fontSize: 10,
     color: "rgba(205, 222, 8, 1)",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   optionsContainer: {
     flex: 1,
@@ -207,12 +214,14 @@ const styles = StyleSheet.create({
   optionText: {
     flex: 1,
     marginLeft: 10,
-    fontSize: 16,
+    fontSize: 13,
     color: "rgba(21, 33, 118, 1)",
+    fontFamily: "AnekBangla_400Regular",
   },
   optionSecondaryText: {
-    fontSize: 14,
+    fontSize: 10,
     color: "#666",
+    fontFamily: "AnekBangla_300Light",
   },
   logoutContainer: {
     alignItems: "center",
@@ -227,15 +236,16 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   logoutText: {
-    fontSize: 16,
+    fontSize: 14,
     color: "rgba(21, 33, 118, 1)",
-    fontWeight: "200",
     textAlign: "center",
+    fontFamily: "AnekBangla_400Regular",
   },
   versionText: {
     marginTop: 10,
     fontSize: 12,
     color: "rgba(21, 33, 118, 1)",
+    fontFamily: "AnekBangla_400Regular",
   },
 });
 
