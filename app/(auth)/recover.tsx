@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: "bold",
     color: "#FFFFFF",
     marginBottom: 10,
     fontFamily: "AnekBangla_500Medium",

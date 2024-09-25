@@ -23,7 +23,6 @@ export default function Code() {
     AnekBangla_500Medium,
     AnekBangla_600SemiBold,
   });
-
   if (!isLoaded) {
     return null;
   }
