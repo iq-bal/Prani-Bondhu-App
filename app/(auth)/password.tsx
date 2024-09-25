@@ -1,3 +1,8 @@
+import {
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  useFonts,
+} from "@expo-google-fonts/anek-bangla";
 import { router } from "expo-router";
 import React from "react";
 import {
@@ -14,6 +19,15 @@ import { SafeAreaView } from "react-native-safe-area-context";
 const { width, height } = Dimensions.get("window");
 
 export default function Password() {
+  let [isLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!isLoaded) {
+    return null;
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -69,11 +83,12 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 10,
     color: "#141F74",
     backgroundColor: "#FFFFFF",
     padding: 10,
     borderRadius: 50,
+    fontFamily: "AnekBangla_600SemiBold",
   },
   titleContainer: {
     paddingHorizontal: width * 0.06, // Adjusts paddingHorizontal relative to screen width
@@ -81,11 +96,11 @@ const styles = StyleSheet.create({
     marginTop: height * 0.15, // Adjusts marginTop relative to screen height
   },
   title: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 32,
     color: "#FFFFFF",
     marginBottom: 10,
     textAlign: "center", // Center the title text
+    fontFamily: "AnekBangla_500Medium",
   },
   formContainer: {
     backgroundColor: "#FFFFFF",
@@ -99,9 +114,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#E7E4E4",
     borderRadius: 10,
     padding: 15,
-    fontSize: 16,
-    color: "#000000",
+    fontSize: 15,
+    color: "rgba(0, 0, 0, 0.5)",
     marginBottom: 20,
+    fontFamily: "AnekBangla_500Medium",
   },
   nextButton: {
     backgroundColor: "#141F74",
@@ -112,8 +128,8 @@ const styles = StyleSheet.create({
     alignSelf: "center", // Center the button
   },
   nextButtonText: {
-    fontSize: 18,
+    fontSize: 15,
     color: "#FFFFFF",
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_500Medium",
   },
 });

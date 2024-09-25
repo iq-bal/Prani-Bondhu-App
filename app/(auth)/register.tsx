@@ -1,3 +1,8 @@
+import {
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  useFonts,
+} from "@expo-google-fonts/anek-bangla";
 import { router } from "expo-router";
 import React from "react";
 import {
@@ -12,6 +17,15 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Register() {
+  let [isLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!isLoaded) {
+    return null;
+  }
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <ScrollView style={styles.container}>
@@ -103,28 +117,30 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 10,
     color: "#141F74",
     backgroundColor: "#FFFFFF",
     padding: 10,
     borderRadius: 50,
     alignSelf: "flex-start",
     marginBottom: 20,
+    fontFamily: "AnekBangla_600SemiBold",
   },
   titleContainer: {
     marginTop: 20,
   },
   title: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 32,
     color: "#FFFFFF",
     marginBottom: 10,
+    fontFamily: "AnekBangla_500Medium",
   },
   subtitle: {
     fontSize: 16,
     color: "#FFFFFF",
     marginBottom: 30,
     lineHeight: 24,
+    fontFamily: "AnekBangla_500Medium",
   },
   formContainer: {
     backgroundColor: "#FFFFFF",
@@ -137,9 +153,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#E7E4E4",
     borderRadius: 10,
     padding: 15,
-    fontSize: 16,
-    color: "#000",
+    fontSize: 15,
+    color: "rgba(0, 0, 0, 0.5)",
     marginBottom: 15,
+    fontFamily: "AnekBangla_500Medium",
   },
   inputIconContainer: {
     flexDirection: "row",
@@ -152,17 +169,19 @@ const styles = StyleSheet.create({
   inputWithIcon: {
     flex: 1,
     padding: 15,
-    fontSize: 16,
-    color: "#000",
+    fontSize: 15,
+    color: "rgba(0, 0, 0, 0.5)",
+    fontFamily: "AnekBangla_500Medium",
   },
   inputIcon: {
     fontSize: 20,
     color: "#141F74",
   },
   hintText: {
-    fontSize: 12,
+    fontSize: 11,
     color: "#152176",
     marginBottom: 10,
+    fontFamily: "AnekBangla_500Medium",
   },
   checkboxContainer: {
     flexDirection: "row",
@@ -178,8 +197,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   checkboxText: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#152176",
+    fontFamily: "AnekBangla_600SemiBold",
   },
   registerButton: {
     backgroundColor: "#141F74",
@@ -191,15 +211,16 @@ const styles = StyleSheet.create({
     alignSelf: "center", // Center the button
   },
   registerButtonText: {
-    fontSize: 18,
+    fontSize: 15,
     color: "#FFFFFF",
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_500Medium",
   },
   loginLink: {
     alignItems: "center",
   },
   loginText: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#141F74",
+    fontFamily: "AnekBangla_500Medium",
   },
 });

@@ -1,3 +1,8 @@
+import {
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  useFonts,
+} from "@expo-google-fonts/anek-bangla";
 import { router } from "expo-router";
 import React from "react";
 import {
@@ -11,6 +16,14 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Login() {
+  let [isLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!isLoaded) {
+    return null;
+  }
   return (
     <SafeAreaView style={styles.safeContainer}>
       <ScrollView
@@ -89,13 +102,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 10,
     color: "#141F74",
     backgroundColor: "#FFFFFF",
     padding: 10,
     borderRadius: 50,
     alignSelf: "flex-start",
     marginBottom: 50, // Added margin to create a gap
+    fontFamily: "AnekBangla_600SemiBold",
   },
   titleContainer: {
     marginTop: 30, // Added margin to create a gap
@@ -110,16 +124,17 @@ const styles = StyleSheet.create({
     paddingVertical: 40,
   },
   title: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 32,
     color: "#FFFFFF",
     marginBottom: 10,
+    fontFamily: "AnekBangla_500Medium",
   },
   subtitle: {
     fontSize: 16,
     color: "#FFFFFF",
     marginBottom: 40,
     lineHeight: 24,
+    fontFamily: "AnekBangla_500Medium",
   },
   inputContainer: {
     marginBottom: 20,
@@ -128,17 +143,19 @@ const styles = StyleSheet.create({
     backgroundColor: "#E7E4E4",
     borderRadius: 10,
     padding: 15,
-    fontSize: 16,
-    color: "#000",
+    fontSize: 15,
+    color: "rgba(0, 0, 0, 0.5)",
     marginBottom: 15,
+    fontFamily: "AnekBangla_500Medium",
   },
   forgotPassword: {
     alignItems: "flex-end",
     marginBottom: 20,
   },
   forgotPasswordText: {
-    fontSize: 14,
+    fontSize: 13,
     color: "#152176",
+    fontFamily: "AnekBangla_500Medium",
   },
   loginButton: {
     backgroundColor: "#141F74",
@@ -150,15 +167,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   loginButtonText: {
-    fontSize: 18,
+    fontSize: 15,
     color: "#FFFFFF",
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_500Medium",
   },
   registerLink: {
     alignItems: "center",
   },
   registerText: {
-    fontSize: 16,
+    fontSize: 20,
     color: "#141F74",
+    fontFamily: "AnekBangla_500Medium",
   },
 });

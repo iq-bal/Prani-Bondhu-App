@@ -11,10 +11,23 @@ import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 
 import { SafeAreaView } from "react-native-safe-area-context";
+import {
+  AnekBangla_500Medium,
+  AnekBangla_600SemiBold,
+  useFonts,
+} from "@expo-google-fonts/anek-bangla";
 
 const { width, height } = Dimensions.get("window");
 
 export default function Success() {
+  let [isLoaded] = useFonts({
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!isLoaded) {
+    return null;
+  }
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView
@@ -67,11 +80,12 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 10,
     color: "#141F74",
     backgroundColor: "#FFFFFF",
     padding: 10,
     borderRadius: 50,
+    fontFamily: "AnekBangla_600SemiBold",
   },
   iconContainer: {
     justifyContent: "center",
@@ -84,10 +98,10 @@ const styles = StyleSheet.create({
     marginTop: 20, // Adjusts marginTop relative to icon
   },
   title: {
-    fontSize: 30,
-    fontWeight: "bold",
+    fontSize: 32,
     color: "#FFFFFF",
     textAlign: "center",
+    fontFamily: "AnekBangla_500Medium",
   },
   buttonContainer: {
     justifyContent: "center",
@@ -103,8 +117,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   loginButtonText: {
-    fontSize: 18,
+    fontSize: 20,
     color: "#152176",
-    fontWeight: "bold",
+    fontFamily: "AnekBangla_500Medium",
   },
 });
