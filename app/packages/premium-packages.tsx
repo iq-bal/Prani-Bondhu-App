@@ -116,9 +116,9 @@ const PremiumPackageScreen = () => {
         horizontal
         contentContainerStyle={styles.packageScroll}
       >
-        <Package text="এখনি কিনুন" />
-        <Package text="এখনি কিনুন" />
-        <Package text="এখনি কিনুন" />
+        <Package text="এখনি কিনুন" reducingFactor={80} />
+        <Package text="এখনি কিনুন" reducingFactor={80} />
+        <Package text="এখনি কিনুন" reducingFactor={80} />
       </ScrollView>
 
       {/* Total Pond Section */}

@@ -22,8 +22,7 @@ function ParentContainer({ children }: ParentContainerProps) {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    paddingHorizontal: 25,
-    // paddingVertical: 20,
+    paddingHorizontal: 10,
     paddingTop: 20,
   },
   container: {

@@ -38,9 +38,10 @@ const screenWidth = Dimensions.get("window").width;
 
 interface PackageProps {
   text: string;
+  reducingFactor: number;
 }
 
-const Package = ({ text }: PackageProps) => {
+const Package = ({ text, reducingFactor = 20 }: PackageProps) => {
   let [fontsLoadedAnek] = useFonts({
     AnekBangla_100Thin,
     AnekBangla_200ExtraLight,
@@ -69,7 +70,12 @@ const Package = ({ text }: PackageProps) => {
   }
 
   return (
-    <View style={[styles.packageCard, { backgroundColor: "#F2E307" }]}>
+    <View
+      style={[
+        styles.packageCard,
+        { backgroundColor: "#F2E307", width: screenWidth - reducingFactor },
+      ]}
+    >
       <Text style={styles.packageTitle}>ক্ষুদ্র খামারী</Text>
       {/* Circle with price */}
       <View style={styles.priceCircle}>
@@ -109,12 +115,11 @@ const FeatureItem = ({ text }: FeatureItemProps) => (
 
 const styles = StyleSheet.create({
   packageCard: {
-    width: 350, // Increased width
     borderRadius: 10,
     padding: 15,
     marginRight: 20,
     position: "relative",
-    overflow: "hidden", // Added to hide overflow
+    overflow: "hidden",
     elevation: 5,
     shadowColor: "#000",
     shadowOpacity: 0.1,
