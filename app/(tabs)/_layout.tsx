@@ -3,6 +3,7 @@ import { Tabs, Stack } from "expo-router";
 import SvgComponent from "../components/vector/svg-component";
 import HomeSvg from "../components/vector/home-svg";
 import ProfileSvg from "../components/vector/profile-svg";
+import { AnekBangla_400Regular } from "@expo-google-fonts/anek-bangla";
 
 const TabsLayout = () => {
   return (
@@ -37,7 +38,17 @@ const TabsLayout = () => {
           } else if (route.name === "profile") {
             label = "এ্যাকাউন্ট";
           }
-          return <Text style={{ color, fontSize: 12 }}>{label}</Text>;
+          return (
+            <Text
+              style={{
+                color,
+                fontSize: 10,
+                fontFamily: "AnekBangla_400Regular",
+              }}
+            >
+              {label}
+            </Text>
+          );
         },
         tabBarStyle: {
           backgroundColor: "#EBF3FF",
