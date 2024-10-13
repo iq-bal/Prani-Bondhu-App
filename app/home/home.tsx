@@ -105,8 +105,8 @@ const Home = () => {
         />
       </ScrollView>
 
-      {/* <PosterSvg style={{ marginBottom: 20, width: screenWidth }} /> */}
-      {/* <WeatherSvg style={{ backgroundColor: "", marginBottom: 20 }} /> */}
+      <PosterSvg style={{ marginBottom: 20, width: screenWidth }} />
+      <WeatherSvg style={{ backgroundColor: "", marginBottom: 20 }} />
       <Fishing
         pondName="ইলিশ দিঘি"
         pondDetails={{ finished: "৫", running: "১" }}

@@ -7,6 +7,12 @@ import {
 } from "react-native";
 import FishSvg from "../vector/fish-svg";
 
+import {
+  useFonts,
+  AnekBangla_400Regular,
+  AnekBangla_600SemiBold,
+} from "@expo-google-fonts/anek-bangla";
+
 interface ProjectCardProps {
   handleCardPress?: () => void;
   reducingFactor: number;
@@ -20,6 +26,13 @@ const ProjectCard = ({
   reducingFactor = 20,
   marginRight = 0,
 }: ProjectCardProps) => {
+  let [isLoaded] = useFonts({
+    AnekBangla_400Regular,
+    AnekBangla_600SemiBold,
+  });
+  if (!isLoaded) {
+    return null;
+  }
   return (
     <View
       style={{ width: screenWidth - reducingFactor, marginRight: marginRight }}
