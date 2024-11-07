@@ -92,8 +92,9 @@ const FeatureItem = ({ text }: FeatureItemProps) => (
 
 const styles = StyleSheet.create({
   packageCard: {
-    borderRadius: 10,
-    padding: 15,
+    borderRadius: 20,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
     marginRight: 20,
     position: "relative",
     overflow: "hidden",
@@ -139,18 +140,18 @@ const styles = StyleSheet.create({
   },
   featureText: {
     marginLeft: 10,
-    // fontSize: screenWidth < 350 ? 14 : 16, // Responsive font size
     fontSize: 12,
     fontFamily: "AnekBangla_400Regular",
     color: "#141F74",
     flexShrink: 1,
     flex: 1,
     zIndex: 100,
+    transform: [{ translateY: -2.5 }],
   },
   packageButton: {
     backgroundColor: "#141F74",
-    borderRadius: 8,
-    paddingVertical: 10,
+    borderRadius: 20,
+    paddingVertical: 8,
     alignItems: "center",
   },
   buttonText: {
