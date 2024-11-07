@@ -83,6 +83,21 @@ interface ListItemProps {
 }
 
 const ListItem = ({ item }: ListItemProps) => {
+  let [fontsLoaded] = useFonts({
+    AnekBangla_100Thin,
+    AnekBangla_200ExtraLight,
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_500Medium,
+    AnekBangla_600SemiBold,
+    AnekBangla_700Bold,
+    AnekBangla_800ExtraBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <TouchableOpacity
       onPress={() => {

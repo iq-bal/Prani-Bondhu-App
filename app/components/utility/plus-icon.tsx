@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 2,
-    // marginHorizontal: 20, // Distance from the screen edges
+    margin: 10,
+    // marginHorizontal: 10, // Distance from the screen edges
   },
 });
 

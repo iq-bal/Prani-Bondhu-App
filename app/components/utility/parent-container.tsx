@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import { ScrollView, StyleSheet, Dimensions } from "react-native";
+import React, { Children, ReactNode } from "react";
+import { ScrollView, StyleSheet, Dimensions, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 interface ParentContainerProps {

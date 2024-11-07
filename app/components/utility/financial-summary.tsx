@@ -24,35 +24,57 @@ const FinancialSummary = () => {
             <Text style={styles.cardValue}>১,৫৮,৫৪৭০ টাকা</Text>
           </View>
         </View>
-        <View style={styles.cardContainer}>
+        <View style={[{ ...styles.cardContainer, marginRight: 0 }]}>
           <Text style={styles.cardTitle}>মোট ব্যয়</Text>
           <View style={styles.card}>
             <Text style={styles.cardValue}>১,৫৮,৫৪৭০ টাকা</Text>
           </View>
         </View>
-        <View style={[{ ...styles.cardContainer, marginRight: 0 }]}>
+        {/* <View style={[{ ...styles.cardContainer, marginRight: 0 }]}>
+          <Text style={styles.cardTitle}>মোট পাওনা</Text>
+          <View style={styles.card}>
+            <Text style={styles.cardValue}>১,৫৮,৫৪৭০ টাকা</Text>
+          </View>
+        </View> */}
+      </View>
+
+      <View style={styles.row}>
+        <View style={styles.cardContainer}>
           <Text style={styles.cardTitle}>মোট পাওনা</Text>
           <View style={styles.card}>
             <Text style={styles.cardValue}>১,৫৮,৫৪৭০ টাকা</Text>
           </View>
         </View>
-      </View>
-
-      {/* Second Row: মোট দেনাদার, মোট লাভ / ক্ষতি */}
-      <View style={styles.row}>
-        <View style={styles.cardContainer}>
-          <Text style={styles.cardTitle}>মোট দেনাদার</Text>
+        <View style={[{ ...styles.cardContainer, marginRight: 0 }]}>
+          <Text style={styles.cardTitle}>মোট দেনা</Text>
           <View style={styles.card}>
             <Text style={styles.cardValue}>১,৫৮,৫৪৭০ টাকা</Text>
           </View>
         </View>
+        {/* <View style={[{ ...styles.cardContainer, marginRight: 0 }]}>
+          <Text style={styles.cardTitle}>মোট পাওনা</Text>
+          <View style={styles.card}>
+            <Text style={styles.cardValue}>১,৫৮,৫৪৭০ টাকা</Text>
+          </View>
+        </View> */}
+      </View>
+
+      {/* Second Row: মোট দেনাদার, মোট লাভ / ক্ষতি */}
+      <View style={styles.row}>
+        {/* <View style={styles.cardContainer}>
+          <Text style={styles.cardTitle}>মোট দেনাদার</Text>
+          <View style={styles.card}>
+            <Text style={styles.cardValue}>১,৫৮,৫৪৭০ টাকা</Text>
+          </View>
+        </View> */}
         <View
           style={[
             { ...styles.cardContainer, marginRight: 0 },
             styles.fullWidthCardContainer,
           ]}
         >
-          <Text style={styles.cardTitle}>মোট লাভ / ক্ষতি</Text>
+          {/* <Text style={styles.cardTitle}>মোট লাভ / ক্ষতি</Text> */}
+          <View style={{ marginBottom: 5 }}></View>
           <View style={[styles.card, styles.highlightedCard]}>
             <Text style={styles.highlightedCardValue}>
               মোট লাভ ১৩,৯৫,০০০ টাকা
@@ -73,6 +95,7 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     flex: 1,
+    // gap: 10,
     marginRight: 10,
   },
   cardTitle: {

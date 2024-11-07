@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
@@ -7,6 +7,7 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  Animated,
 } from "react-native";
 import Header from "../components/utility/header";
 import Sidebar from "../components/utility/sidebar";
@@ -19,15 +20,10 @@ import { useRouter } from "expo-router";
 
 import {
   useFonts,
-  AnekBangla_100Thin,
-  AnekBangla_200ExtraLight,
   AnekBangla_300Light,
-  AnekBangla_400Regular,
-  AnekBangla_500Medium,
   AnekBangla_600SemiBold,
-  AnekBangla_700Bold,
-  AnekBangla_800ExtraBold,
 } from "@expo-google-fonts/anek-bangla";
+
 import ProjectCard from "../components/utility/project-card";
 
 const screenWidth = Dimensions.get("window").width;
@@ -35,6 +31,7 @@ const screenWidth = Dimensions.get("window").width;
 const Home = () => {
   const router = useRouter();
   const [isSidebarVisible, setSidebarVisible] = useState(false);
+  const scrollX = useRef(new Animated.Value(0)).current;
 
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
@@ -53,14 +50,8 @@ const Home = () => {
   };
 
   let [fontsLoaded] = useFonts({
-    AnekBangla_100Thin,
-    AnekBangla_200ExtraLight,
     AnekBangla_300Light,
-    AnekBangla_400Regular,
-    AnekBangla_500Medium,
     AnekBangla_600SemiBold,
-    AnekBangla_700Bold,
-    AnekBangla_800ExtraBold,
   });
 
   if (!fontsLoaded) {
@@ -88,25 +79,59 @@ const Home = () => {
         <Text style={styles.viewAllText}>সব দেখুন</Text>
       </TouchableOpacity>
 
-      <ScrollView
+      <Animated.ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{ margin: 0 }}
+        snapToInterval={200} // Adjust as per card width + margin
+        decelerationRate="fast"
+        scrollEventThrottle={16}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          { useNativeDriver: false }
+        )}
       >
-        <ProjectCard
-          handleCardPress={handleCardPress}
-          reducingFactor={100}
-          marginRight={10}
-        />
-        <ProjectCard
-          handleCardPress={handleCardPress}
-          reducingFactor={100}
-          marginRight={10}
-        />
-      </ScrollView>
+        {[0, 1].map((_, index) => {
+          const inputRange = [
+            (index - 1) * 210,
+            index * 210,
+            (index + 1) * 210,
+          ]; // Adjust based on card width
+          const scale = scrollX.interpolate({
+            inputRange,
+            outputRange: [0.9, 1, 0.9],
+            extrapolate: "clamp",
+          });
 
-      <PosterSvg style={{ marginBottom: 20, width: screenWidth }} />
-      <WeatherSvg style={{ backgroundColor: "", marginBottom: 20 }} />
+          return (
+            <Animated.View
+              key={index}
+              style={{
+                transform: [{ scale }],
+                marginRight: 5,
+              }}
+            >
+              <ProjectCard
+                handleCardPress={handleCardPress}
+                reducingFactor={100}
+                marginRight={0}
+              />
+            </Animated.View>
+          );
+        })}
+      </Animated.ScrollView>
+
+      <View
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <PosterSvg style={{ marginBottom: 20, width: screenWidth }} />
+        <WeatherSvg style={{ backgroundColor: "", marginBottom: 20 }} />
+      </View>
+
       <Fishing
         pondName="ইলিশ দিঘি"
         pondDetails={{ finished: "৫", running: "১" }}
@@ -117,7 +142,7 @@ const Home = () => {
         pondDetails={{ finished: "৫", running: "১" }}
         filterActive={true}
       />
-      <Package text="মেয়াদ শেষ হবে ১৫ই জুলাই ২০২৪" reducingFactor={20} />
+      <Package text="মেয়াদ শেষ হবে ১৫ই জুলাই ২০২৪" reducingFactor={20} />
       <View style={{ marginBottom: 30 }} />
       {/* Sidebar */}
       <Sidebar visible={isSidebarVisible} onClose={closeSidebar} />
@@ -137,18 +162,15 @@ const styles = StyleSheet.create({
   },
   mainTitle: {
     fontSize: 20,
-    // color: "#000000",
     fontFamily: "AnekBangla_600SemiBold",
   },
   subtitle: {
     fontSize: 12,
-    // color: "rgba(0, 0, 0, 1)",
     fontFamily: "AnekBangla_300Light",
   },
   viewAll: {
     marginTop: 0,
     marginBottom: 15,
-    // marginRight: 20,
   },
   viewAllText: {
     textAlign: "right",

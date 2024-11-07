@@ -21,17 +21,6 @@ import {
   AnekBangla_800ExtraBold,
 } from "@expo-google-fonts/anek-bangla";
 
-import {
-  Inter_100Thin,
-  Inter_200ExtraLight,
-  Inter_300Light,
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-  Inter_900Black,
-} from "@expo-google-fonts/inter";
 import FishSvg from "../vector/fish-svg";
 
 const screenWidth = Dimensions.get("window").width;
@@ -53,19 +42,7 @@ const Package = ({ text, reducingFactor = 20 }: PackageProps) => {
     AnekBangla_800ExtraBold,
   });
 
-  let [fontsLoadedInter] = useFonts({
-    Inter_100Thin,
-    Inter_200ExtraLight,
-    Inter_300Light,
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_800ExtraBold,
-    Inter_900Black,
-  });
-
-  if (!fontsLoadedAnek || !fontsLoadedInter) {
+  if (!fontsLoadedAnek) {
     return null;
   }
 
@@ -130,7 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     marginBottom: 5,
     color: "#141F74",
-    fontFamily: "Inter_400Regular",
+    fontFamily: "AnekBangla_400Regular",
   },
   priceCircle: {
     position: "absolute",
@@ -164,7 +141,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     // fontSize: screenWidth < 350 ? 14 : 16, // Responsive font size
     fontSize: 12,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "AnekBangla_400Regular",
     color: "#141F74",
     flexShrink: 1,
     flex: 1,
@@ -179,7 +156,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFFFFF",
     fontSize: 15,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "AnekBangla_400Regular",
   },
   fishContainer: {
     position: "absolute",

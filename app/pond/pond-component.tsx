@@ -16,6 +16,8 @@ import Income from "../components/utility/income";
 import PlusIcon from "../components/utility/plus-icon";
 import FormField from "../components/utility/form-field";
 import { router } from "expo-router";
+import { MaterialCommunityIcons } from "@expo/vector-icons"; // Using Expo icons
+import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
   useFonts,
@@ -28,6 +30,7 @@ import {
   AnekBangla_700Bold,
   AnekBangla_800ExtraBold,
 } from "@expo-google-fonts/anek-bangla";
+import CustomCard from "./income";
 
 const screenWidth = Dimensions.get("window").width;
 
@@ -220,210 +223,268 @@ function PondComponent() {
     return null;
   }
   return (
-    <ParentContainer>
-      <Header
-        onIconPress={() => {
-          router.push("/packages/premium-packages");
-        }}
-        alignment="right"
-      >
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => handleOpenForm("cultivation")}
-        >
-          <Ionicons name="add" size={24} color="#5667E5" />
-          <Text style={styles.addButtonText}>নতুন চাষ করুন</Text>
-        </TouchableOpacity>
-      </Header>
-
-      {/* Title Section */}
-      <View style={styles.titleSection}>
-        <Text style={styles.mainTitle}>ইলিশ দীঘি</Text>
-        <Text style={styles.subtitle}>১২ তম চাষ চলমান</Text>
-      </View>
-
-      {/* Info Cards Section */}
-      <View style={styles.infoCardsContainer}>
-        <View style={styles.cardWrapper}>
-          <Text style={styles.cardTitle}>দীঘি খোলা হয়েছিলো</Text>
-          <View style={styles.infoCard}>
-            <View style={styles.infoCardRow}>
-              <Ionicons name="calendar" size={16} color="#5667E5" />
-              <Text style={styles.infoCardTitle}>৭ই ডিসেম্বর, ২০২৪</Text>
-            </View>
-            <View
-              style={{ ...styles.infoCardRow, transform: "translateX(-5px)" }}
+    <>
+      <SafeAreaView style={{ paddingTop: 20 }}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.container}>
+            <Header
+              onIconPress={() => {
+                router.push("/packages/premium-packages");
+              }}
+              alignment="right"
             >
-              <Ionicons name="stopwatch" size={16} color="#5667E5" />
-              <Text style={styles.infoCardTitle}>সকাল ১২ : ৪৫ টা</Text>
+              <TouchableOpacity
+                style={styles.addButton}
+                onPress={() => handleOpenForm("cultivation")}
+              >
+                <Ionicons name="add" size={24} color="#5667E5" />
+                <Text style={styles.addButtonText}>নতুন চাষ করুন</Text>
+              </TouchableOpacity>
+            </Header>
+            {/* Title Section */}
+            <View style={styles.titleSection}>
+              <Text style={styles.mainTitle}>ইলিশ দীঘি</Text>
+              <Text style={styles.subtitle}>১২ তম চাষ চলমান</Text>
             </View>
-          </View>
-        </View>
+            {/* Info Cards Section */}
+            <View style={styles.infoCardsContainer}>
+              <View style={styles.cardWrapper}>
+                <Text style={styles.cardTitle}>দীঘি খোলা হয়েছিলো</Text>
+                <View style={styles.infoCard}>
+                  <View style={styles.infoCardRow}>
+                    <Ionicons name="calendar" size={16} color="#5667E5" />
+                    <Text style={styles.infoCardTitle}>৭ই ডিসেম্বর, ২০২৪</Text>
+                  </View>
+                  <View
+                    style={{
+                      ...styles.infoCardRow,
+                      transform: "translateX(-5px)",
+                    }}
+                  >
+                    <Ionicons name="stopwatch" size={16} color="#5667E5" />
+                    <Text style={styles.infoCardTitle}>সকাল ১২ : ৪৫ টা</Text>
+                  </View>
+                </View>
+              </View>
 
-        <View style={styles.cardWrapper}>
-          <Text style={styles.cardTitle}>দীঘিতে মোট চাষ করা হয়েছে</Text>
-          <View style={styles.infoCard}>
-            <Text style={styles.infoCardTitle}>১১ বার</Text>
-          </View>
-        </View>
+              <View style={styles.cardWrapper}>
+                <Text style={styles.cardTitle}>দীঘিতে মোট চাষ করা হয়েছে</Text>
+                <View style={styles.infoCard}>
+                  <Text style={styles.infoCardTitle}>১১ বার</Text>
+                </View>
+              </View>
 
-        <View style={styles.cardWrapper}>
-          <Text style={styles.cardTitle}>দিঘীতে মোট আয়</Text>
-          <View style={styles.infoCard}>
-            <Text style={styles.infoCardTitle}>১,৫৮,৫৮৩৭০ টাকা</Text>
-          </View>
-        </View>
+              <View style={styles.cardWrapper}>
+                <Text style={styles.cardTitle}>দিঘীতে মোট আয়</Text>
+                <View style={styles.infoCard}>
+                  <Text style={styles.infoCardTitle}>১,৫৮,৫৮৩৭০ টাকা</Text>
+                </View>
+              </View>
 
-        <View style={styles.cardWrapper}>
-          <Text style={styles.cardTitle}>দীঘিতে মোট ব্যায়</Text>
-          <View style={styles.infoCard}>
-            <Text style={styles.infoCardTitle}>১,৫৮,৫৫৭০ টাকা</Text>
-          </View>
-        </View>
-      </View>
-
-      {/* Total Section */}
-      <View style={styles.totalSection}>
-        <Text style={styles.totalText}>মোট লাঠ হয়েছে ১৩,৯৫,০০০ টাকা</Text>
-      </View>
-
-      {/* Title Above Horizontal Scroll */}
-      <Text style={styles.horizontalScrollTitle}>সকল চাষ সমুহ (১২ বার)</Text>
-
-      {/* Horizontal Scroll Section */}
-      <ScrollView
-        showsHorizontalScrollIndicator={false}
-        horizontal={true}
-        style={styles.horizontalScroll}
-      >
-        {/* Card 1 */}
-        <TouchableOpacity
-          onPress={() => {
-            router.push("/cultivation-details/cultivation-details");
-          }}
-          style={[styles.scrollCard, { borderColor: "#5667E5" }]}
-        >
-          <View style={styles.scrollCardHeader}>
-            <Ionicons name="ellipse" size={12} color="#5667E5" />
-            <Text style={[styles.scrollCardTitle, { color: "#5667E5" }]}>
-              চলমান ১২
+              <View style={styles.cardWrapper}>
+                <Text style={styles.cardTitle}>দীঘিতে মোট ব্যায়</Text>
+                <View style={styles.infoCard}>
+                  <Text style={styles.infoCardTitle}>১,৫৮,৫৫৭০ টাকা</Text>
+                </View>
+              </View>
+            </View>
+            {/* Total Section */}
+            <View style={styles.totalSection}>
+              <Text style={styles.totalText}>মোট লাঠ হয়েছে ১৩,৯৫,০০০ টাকা</Text>
+            </View>
+            {/* Title Above Horizontal Scroll */}
+            <Text style={styles.horizontalScrollTitle}>
+              সকল চাষ সমুহ (১২ বার)
             </Text>
-            <Text style={[styles.scrollCardStatus, { color: "#5667E5" }]}>
-              লাভ
-            </Text>
+            {/* Horizontal Scroll Section */}
+            <ScrollView
+              showsHorizontalScrollIndicator={false}
+              horizontal={true}
+              style={styles.horizontalScroll}
+            >
+              {/* Card 1 */}
+              <TouchableOpacity
+                onPress={() => {
+                  router.push("/cultivation-details/cultivation-details");
+                }}
+                style={[styles.scrollCard, { borderColor: "#5667E5" }]}
+              >
+                <View style={styles.scrollCardHeader}>
+                  <Ionicons name="ellipse" size={12} color="#5667E5" />
+                  <Text style={[styles.scrollCardTitle, { color: "#5667E5" }]}>
+                    চলমান ১২
+                  </Text>
+                  <Text style={[styles.scrollCardStatus, { color: "#5667E5" }]}>
+                    লাভ
+                  </Text>
+                </View>
+                <Text style={styles.scrollCardAmount}>১,৫২,৭৩২ টাকা</Text>
+              </TouchableOpacity>
+
+              {/* Card 2 */}
+              <TouchableOpacity
+                style={[styles.scrollCard, { borderColor: "#FF0000" }]}
+              >
+                <View style={styles.scrollCardHeader}>
+                  <Text style={styles.scrollCardTitle}>চাষ ১১</Text>
+                  <Text style={[styles.scrollCardStatus, { color: "#FF0000" }]}>
+                    ক্ষতি
+                  </Text>
+                </View>
+                <Text style={styles.scrollCardAmount}>১,৫২,৭৩২ টাকা</Text>
+              </TouchableOpacity>
+
+              {/* Card 3 */}
+              <TouchableOpacity
+                style={[styles.scrollCard, { borderColor: "#5667E5" }]}
+              >
+                <View style={styles.scrollCardHeader}>
+                  <Text style={styles.scrollCardTitle}>চাষ ১০</Text>
+                  <Text style={[styles.scrollCardStatus, { color: "#5667E5" }]}>
+                    লাভ
+                  </Text>
+                </View>
+                <Text style={styles.scrollCardAmount}>১,৫২,৭৩২ টাকা</Text>
+              </TouchableOpacity>
+            </ScrollView>
           </View>
-          <Text style={styles.scrollCardAmount}>১,৫২,৭৩২ টাকা</Text>
-        </TouchableOpacity>
 
-        {/* Card 2 */}
-        <TouchableOpacity
-          style={[styles.scrollCard, { borderColor: "#FF0000" }]}
-        >
-          <View style={styles.scrollCardHeader}>
-            <Text style={styles.scrollCardTitle}>চাষ ১১</Text>
-            <Text style={[styles.scrollCardStatus, { color: "#FF0000" }]}>
-              ক্ষতি
-            </Text>
-          </View>
-          <Text style={styles.scrollCardAmount}>১,৫২,৭৩২ টাকা</Text>
-        </TouchableOpacity>
-
-        {/* Card 3 */}
-        <TouchableOpacity
-          style={[styles.scrollCard, { borderColor: "#5667E5" }]}
-        >
-          <View style={styles.scrollCardHeader}>
-            <Text style={styles.scrollCardTitle}>চাষ ১০</Text>
-            <Text style={[styles.scrollCardStatus, { color: "#5667E5" }]}>
-              লাভ
-            </Text>
-          </View>
-          <Text style={styles.scrollCardAmount}>১,৫২,৭৩২ টাকা</Text>
-        </TouchableOpacity>
-
-        {/* Additional cards can be added here as needed */}
-      </ScrollView>
-
-      {/* New UI Section */}
-      <View style={styles.tabsContainer}>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === "income" && styles.activeTab]}
-          onPress={() => setActiveTab("income")}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              activeTab === "income" && styles.activeTabText,
-            ]}
+          <View
+            style={{
+              backgroundColor: "rgba(230, 230, 250, 1)",
+              borderRadius: 20,
+              paddingHorizontal: 10,
+            }}
           >
-            আয় সমূহ
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === "expense" && styles.activeTab]}
-          onPress={() => setActiveTab("expense")}
-        >
-          <Text
-            style={[
-              styles.tabText,
-              activeTab === "expense" && styles.activeTabText,
-            ]}
-          >
-            ব্যায় সমূহ
-          </Text>
-        </TouchableOpacity>
-      </View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                paddingVertical: 15,
+              }}
+            >
+              <MaterialCommunityIcons
+                name="calendar-text"
+                size={30}
+                color="rgba(20, 31, 116, 1)"
+                style={{ marginRight: 5 }}
+              />
+              <Text
+                style={{
+                  fontSize: 16,
+                  fontFamily: "AnekBangla_500Medium",
+                  color: "rgba(20, 31, 116, 1)",
+                }}
+              >
+                প্রকল্পের আয় ব্যয় সমূহ
+              </Text>
+            </View>
 
-      {/* Conditional Rendering of Income/Expense */}
-      {activeTab === "income" ? (
-        <Income
-          onPress={() => {
-            router.push("/pond/pond-income-expense");
-          }}
-          isTouchable={true}
-          type="income"
-          data={{
-            source: "মাটি বিক্রয়",
-            name: "আসিফ",
-            amount: "১৫,০০০ টাকা",
-            date: "৭ই মার্চ ২০২৪",
-            paid: "৭,৫০০ টাকা",
-            due: "৭,৫০০ টাকা",
-            note: "মাটি বিক্রয়ের সময় পাইছি",
-          }}
-        />
-      ) : (
-        <Income
-          isTouchable={true}
-          type="expense"
-          data={{
-            source: "মাটি উত্তোলন",
-            total: "১৫,০০০ টাকা",
-            due: "৭,৫০০ টাকা",
-            paid: "৭,৫০০ টাকা",
-            date: "৭ই মার্চ ২০২৪",
-            supplier: "রসিদ মিয়া",
-            note: "মাটি তোলার সময় দেয়া হইছে",
-          }}
-        />
-      )}
-      <PlusIcon onPress={() => handleOpenForm(activeTab)} position="left" />
-      <Modal visible={isFormVisible} transparent={true} animationType="fade">
-        <BlurView intensity={100} tint="light" style={styles.overlay}>
-          <FormField
-            fields={fieldsToShow}
-            onCancel={handleCloseForm}
-            onSubmit={handleFormSubmit}
-            onBack={handleCloseForm}
-            onCustomerCare={() => console.log("Customer Care Pressed")}
-          />
-        </BlurView>
-      </Modal>
-    </ParentContainer>
+            {/* New UI Section */}
+            <View style={styles.tabsContainer}>
+              <TouchableOpacity
+                style={[styles.tab, activeTab === "income" && styles.activeTab]}
+                onPress={() => setActiveTab("income")}
+              >
+                <Text
+                  style={[
+                    styles.tabText,
+                    activeTab === "income" && styles.activeTabText,
+                  ]}
+                >
+                  আয় সমূহ
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={[
+                  styles.tab,
+                  activeTab === "expense" && styles.activeTab,
+                ]}
+                onPress={() => setActiveTab("expense")}
+              >
+                <Text
+                  style={[
+                    styles.tabText,
+                    activeTab === "expense" && styles.activeTabText,
+                  ]}
+                >
+                  ব্যায় সমূহ
+                </Text>
+              </TouchableOpacity>
+            </View>
+            {/* Conditional Rendering of Income/Expense */}
+            {activeTab === "income" ? (
+              // <Income
+              //   onPress={() => {
+              //     router.push("/pond/pond-income-expense");
+              //   }}
+              //   isTouchable={true}
+              //   type="income"
+              //   data={{
+              //     source: "মাটি বিক্রয়",
+              //     name: "আসিফ",
+              //     amount: "১৫,০০০ টাকা",
+              //     date: "৭ই মার্চ ২০২৪",
+              //     paid: "৭,৫০০ টাকা",
+              //     due: "৭,৫০০ টাকা",
+              //     note: "মাটি বিক্রয়ের সময় পাইছি",
+              //   }}
+              // />
+              <>
+                <CustomCard />
+                <CustomCard />
+                <CustomCard />
+                <CustomCard />
+              </>
+            ) : (
+              // <Income
+              //   isTouchable={true}
+              //   type="expense"
+              //   data={{
+              //     source: "মাটি উত্তোলন",
+              //     total: "১৫,০০০ টাকা",
+              //     due: "৭,৫০০ টাকা",
+              //     paid: "৭,৫০০ টাকা",
+              //     date: "৭ই মার্চ ২০২৪",
+              //     supplier: "রসিদ মিয়া",
+              //     note: "মাটি তোলার সময় দেয়া হইছে",
+              //   }}
+              // />
+              <>
+                <CustomCard />
+                <CustomCard />
+                <CustomCard />
+                <CustomCard />
+              </>
+            )}
+          </View>
+
+          <PlusIcon onPress={() => handleOpenForm(activeTab)} position="left" />
+          <Modal
+            visible={isFormVisible}
+            transparent={true}
+            animationType="fade"
+          >
+            <BlurView intensity={100} tint="light" style={styles.overlay}>
+              <FormField
+                fields={fieldsToShow}
+                onCancel={handleCloseForm}
+                onSubmit={handleFormSubmit}
+                onBack={handleCloseForm}
+                onCustomerCare={() => console.log("Customer Care Pressed")}
+              />
+            </BlurView>
+          </Modal>
+        </ScrollView>
+      </SafeAreaView>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 10,
+  },
   addButton: {
     flexDirection: "row",
     alignItems: "center",
@@ -578,7 +639,8 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     alignSelf: "center",
     borderWidth: 1,
-    borderColor: "rgba(86, 103, 229, 1)",
+    // borderColor: "rgba(86, 103, 229, 1)",
+    backgroundColor: "white",
     borderRadius: 10,
     width: "100%",
     padding: 3,

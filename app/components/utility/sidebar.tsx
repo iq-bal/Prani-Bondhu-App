@@ -9,11 +9,13 @@ import {
   Image,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 
 import { BlurView } from "expo-blur";
 
 import { useRouter } from "expo-router";
 import {
+  useFonts,
   AnekBangla_300Light,
   AnekBangla_400Regular,
   AnekBangla_600SemiBold,
@@ -43,6 +45,16 @@ const Sidebar = ({ visible, onClose }: SidebarProps) => {
       }).start();
     }
   }, [visible]);
+
+  let [fontsLoaded] = useFonts({
+    AnekBangla_300Light,
+    AnekBangla_400Regular,
+    AnekBangla_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <Modal
@@ -92,7 +104,12 @@ const Sidebar = ({ visible, onClose }: SidebarProps) => {
             <Text style={styles.optionSecondaryText}>বাংলা</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.optionItem}>
+          <TouchableOpacity
+            onPress={() => {
+              router.push("/subscription/subscription-plan");
+            }}
+            style={styles.optionItem}
+          >
             <Ionicons
               name="clipboard-outline"
               size={20}
