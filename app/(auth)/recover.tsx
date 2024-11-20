@@ -39,8 +39,8 @@ export default function Recover() {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>পাসওয়ার্ড পুনরুদ্ধার</Text>
           <Text style={styles.subtitle}>
-            আপনি যদি পাসওয়ার্ড ভুলে যান তবে আপনার নির্দিষ্ট মোবাইল নম্বর টি
-            দিয়ে সঠিকভাবে একাউন্টটি ফিরিয়ে আনুন।
+            আপনি যদি পাসওয়ার্ড ভুলে যান তাহলে আপনার নিবন্ধিত মোবাইল নম্বর টি
+            দিয়ে সহজেই একাউন্ট ফিরিয়ে আনুন।
           </Text>
         </View>
         <View style={styles.formContainer}>
@@ -66,7 +66,7 @@ export default function Recover() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#4D6CFF",
+    backgroundColor: "rgba(63, 82, 227, 1)",
   },
   scrollContainer: {
     flexGrow: 1,
@@ -82,7 +82,8 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "#141F74",
     backgroundColor: "#FFFFFF",
-    padding: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
     borderRadius: 50,
     fontFamily: "AnekBangla_600SemiBold",
   },

@@ -39,7 +39,7 @@ const UserProfile = () => {
           ]}
           style={styles.headerContainer}
         >
-          <Text style={styles.name}>মোঃ জামির উদ্দিন</Text>
+          <Text style={styles.name}>মোঃ জমির উদ্দিন</Text>
           <Text style={styles.joinDate}>যুক্ত হয়েছেন ১৩ই মার্চ ২০১৪ সাল</Text>
           <Image
             source={{
@@ -57,7 +57,7 @@ const UserProfile = () => {
         <View style={styles.infoContainer}>
           <View style={styles.infoRow}>
             <Ionicons name="person" size={20} color="#13257A" />
-            <Text style={styles.infoText}>মোঃ জামির উদ্দিন</Text>
+            <Text style={styles.infoText}>মোঃ জমির উদ্দিন</Text>
           </View>
           <View style={styles.separator} />
           <View style={styles.infoRow}>
@@ -70,9 +70,9 @@ const UserProfile = () => {
           <View style={styles.infoRow}>
             <Ionicons name="call" size={20} color="#13257A" />
             <Text style={styles.infoText}>০১৯৯০৮৪৮৫৮৯</Text>
-            <View style={styles.rightIconContainer}>
-              <Ionicons name="create-outline" size={20} color="#13257A" />
-            </View>
+            <TouchableOpacity style={styles.rightIconContainer}>
+              <Ionicons name="create-outline" size={25} color="#13257A" />
+            </TouchableOpacity>
           </View>
           <View style={styles.separator} />
           <View style={styles.infoRow}>

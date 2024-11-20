@@ -35,8 +35,8 @@ export default function Login() {
           <View style={styles.titleContainer}>
             <Text style={styles.title}>লগিন করুন</Text>
             <Text style={styles.subtitle}>
-              আপনি যদি পূর্বনায় একাউন্ড নিবন্ধন করে থাকেন তাহলে এখানে আপনার
-              তথ্য দিয়ে একাউন্টে প্রবেশ করতে পারবেন
+              আপনি যদি পুনরায় একাউন্ট নিবন্ধন করে থাকেন তাহলে এখানে আপনার তথ্য
+              দিয়ে একাউন্টে প্রবেশ করতে পারবেন
             </Text>
           </View>
         </View>
@@ -61,7 +61,7 @@ export default function Login() {
             style={styles.forgotPassword}
           >
             <Text style={styles.forgotPasswordText}>
-              পাসওয়ার্ড ভুল গিয়েছে?
+              পাসওয়ার্ড ভুল গিয়েছেন?
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -91,7 +91,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   safeContainer: {
     flex: 1,
-    backgroundColor: "#4D6CFF",
+    backgroundColor: "rgba(63, 82, 227, 1)",
   },
   scrollContainer: {
     flexGrow: 1,
@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: "#141F74",
     backgroundColor: "#FFFFFF",
-    padding: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 5,
     borderRadius: 50,
     alignSelf: "flex-start",
     marginBottom: 50, // Added margin to create a gap
