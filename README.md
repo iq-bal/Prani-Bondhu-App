@@ -1,4 +1,10 @@
-Sure! Here's the `README.md` markdown text based on your request:
+It looks like the markdown syntax isn't rendering as expected. This may be due to the way certain characters or formatting elements are used in the markdown, like **bold** or *italic*. I suggest the following steps to ensure proper rendering on GitHub:
+
+1. Make sure your markdown syntax uses `*` for bullet points and proper headings with `##` for sections.
+2. Use backticks (`` ` ``) for inline code or paths.
+3. Ensure proper placement of images and tables.
+
+Here is the fixed version of the `README.md` file for you:
 
 ````markdown
 # Prani Bondhu
@@ -128,5 +134,5 @@ For support, reach out via the app’s support section or the official website (
 
 ```
 
-Feel free to update the repository URL and make any other adjustments as needed. Let me know if you need further modifications!
+Please make sure the images exist in the `/attachments/` folder as referenced in the markdown file. If you face any further issues with markdown rendering, let me know!
 ```
