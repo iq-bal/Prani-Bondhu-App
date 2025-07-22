@@ -1,4 +1,4 @@
-Sure. Here is the corrected and fully functional Markdown text for your `README.md` file — ready to copy and paste:
+Sure! Here's the `README.md` markdown text based on your request:
 
 ````markdown
 # Prani Bondhu
@@ -127,4 +127,6 @@ See the [LICENSE](LICENSE) file for details.
 For support, reach out via the app’s support section or the official website (if available).
 
 ```
+
+Feel free to update the repository URL and make any other adjustments as needed. Let me know if you need further modifications!
 ```
