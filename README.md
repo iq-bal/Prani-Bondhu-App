@@ -78,13 +78,13 @@
 Screenshots of the app (from the `/attachments/` folder) are shown below:
 
 <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-  <img src="attachments/1.jpg" width="180" height="300">
-  <img src="attachments/2.jpg" width="180" height="300">
-  <img src="attachments/3.jpg" width="180" height="300">
-  <img src="attachments/4.jpg" width="180" height="300">
-  <img src="attachments/5.jpg" width="180" height="300">
-  <img src="attachments/6.jpg" width="180" height="300">
-  <img src="attachments/7.jpg" width="180" height="180">
+  <img src="attachments/1.jpg" width="180" height="400">
+  <img src="attachments/2.jpg" width="180" height="400">
+  <img src="attachments/3.jpg" width="180" height="400">
+  <img src="attachments/4.jpg" width="180" height="400">
+  <img src="attachments/5.jpg" width="180" height="400">
+  <img src="attachments/6.jpg" width="180" height="400">
+  <img src="attachments/7.jpg" width="180" height="400">
   <img src="attachments/8.jpg" width="180" height="180">
   <img src="attachments/9.jpg" width="180" height="180">
   <img src="attachments/10.jpg" width="180" height="180">
