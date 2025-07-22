@@ -1,95 +1,77 @@
-It looks like the markdown syntax isn't rendering as expected. This may be due to the way certain characters or formatting elements are used in the markdown, like **bold** or *italic*. I suggest the following steps to ensure proper rendering on GitHub:
 
-1. Make sure your markdown syntax uses `*` for bullet points and proper headings with `##` for sections.
-2. Use backticks (`` ` ``) for inline code or paths.
-3. Ensure proper placement of images and tables.
+---
 
-Here is the fixed version of the `README.md` file for you:
-
-````markdown
 # Prani Bondhu
 
 ## Overview
 
-**Prani Bondhu** is a mobile application developed using **React Native**, designed to assist fish farmers in managing their aquaculture activities efficiently. The app provides tools for monitoring, managing, and optimizing fish farming operations with a user-friendly interface in **Bengali**.
+**Prani Bondhu** is a mobile app built with **React Native**, created to help fish farmers manage their aquaculture operations more efficiently. It provides tools for monitoring, managing, and optimizing various aspects of fish farming through an intuitive interface, primarily in **Bengali**.
 
 ---
 
 ## Features
 
-- **Farm Monitoring**: Real-time tracking of water quality, fish health, and growth metrics.  
-- **Task Management**: Schedule and manage feeding, harvesting, and maintenance tasks.  
-- **Data Logging**: Record and store data on fish stock, feed usage, and environmental conditions.  
-- **Alerts & Notifications**: Receive alerts for critical conditions like low oxygen levels or pH imbalances.  
-- **Inventory Management**: Track feed, equipment, and fish stock levels.  
-- **User Profile**: Manage farmer details and farm information, including name, address, and contact.  
-- **Analytics Dashboard**: View insights and trends based on collected data, including graphs and charts.  
-- **Multi-Language Support**: Primarily in Bengali, with options to switch languages.  
-- **Real-Time Updates**: Provides real-time balance and transaction updates for farm activities.  
-- **Transaction History**: View detailed records of financial transactions related to farming.  
-- **Payment Options**: Facilitate payments for feed, equipment, or labor with money send/receive features.  
-- **Search Functionality**: Search for specific transactions, tasks, or farm records.  
-- **Customer Support**: Access customer care options, report issues, and view FAQs.  
-- **Appointment Scheduling**: Schedule appointments for consultations or support.  
-- **Weather Updates**: Display weather forecasts to aid farming decisions.  
-- **Fish Health Check**: Assess fish health with visual indicators or manual input options.  
-- **Feed Calculator**: Calculate optimal feed amounts based on fish size and stock.  
-- **Photo Gallery**: Capture, save, and upload photos of fish or farm conditions.  
-- **Tutorial/Guide**: Access in-app tutorials or guides for new farmers.  
-- **Settings & Preferences**: Adjust app settings, including notifications and language.  
+* **Farm Monitoring** – Track water quality, fish health, and growth in real-time
+* **Task Management** – Schedule and manage feeding, harvesting, and maintenance
+* **Data Logging** – Record data on fish stock, feed usage, and environment
+* **Alerts & Notifications** – Get alerts for critical conditions like low oxygen or pH imbalance
+* **Inventory Management** – Track stock of feed, fish, and equipment
+* **User Profile** – Manage farmer info including name, contact, and farm details
+* **Analytics Dashboard** – Visual insights and trends through graphs and charts
+* **Multi-Language Support** – Bengali by default, with language switching available
+* **Real-Time Updates** – Live updates on farm balances and activity
+* **Transaction History** – View complete payment and financial history
+* **Payment Options** – Send and receive money for supplies and labor
+* **Search Functionality** – Search records, transactions, or task entries
+* **Customer Support** – Access support, report issues, or read FAQs
+* **Appointment Scheduling** – Book consultation or support appointments
+* **Weather Updates** – See forecasts to guide fish farming decisions
+* **Fish Health Check** – Check fish health via visual/manual input
+* **Feed Calculator** – Calculate ideal feed amounts by size and quantity
+* **Photo Gallery** – Capture and manage farm/fish photos
+* **Tutorial/Guide** – Learn how to use the app through built-in tutorials
+* **Settings & Preferences** – Control app behavior, notifications, and language
 
 ---
 
 ## Installation
 
-1. Ensure you have **Node.js** and the **React Native** environment set up.  
-2. Clone the repository:  
-   ```bash
-   git clone <repository-url>
-````
-
+1. Make sure you have Node.js and React Native set up
+2. Clone the repository:
+   `git clone <repository-url>`
 3. Navigate to the project directory:
-
-   ```bash
-   cd PraniBondhu
-   ```
+   `cd PraniBondhu`
 4. Install dependencies:
+   `npm install`
+5. Start the app:
 
-   ```bash
-   npm install
-   ```
-5. Run the app on an emulator or device:
-
-   ```bash
-   npx react-native run-android
-   # or
-   npx react-native run-ios
-   ```
+   * For Android: `npx react-native run-android`
+   * For iOS: `npx react-native run-ios`
 
 ---
 
 ## Usage
 
-* **Login**: Register or log in with farmer credentials using phone number and password.
-* **Dashboard**: Access the main screen to view farm status, tasks, and analytics.
-* **Monitoring**: Check real-time data and set custom alerts.
-* **Transactions**: Manage payments and view history via dedicated screens.
-* **Support**: Contact customer care or schedule appointments.
-* **Settings**: Update profile or adjust app preferences.
+* **Login** – Sign in with phone number and password
+* **Dashboard** – Overview of tasks, farm health, and analytics
+* **Monitoring** – Live metrics and alerts for your farm
+* **Transactions** – Payment and financial history screens
+* **Support** – Contact support or schedule help
+* **Settings** – Edit profile or adjust preferences
 
 ---
 
 ## Screenshots
 
-Below are screenshots from the application (located in `/attachments/`):
+Images are located in the `/attachments/` folder:
 
-| Screenshot             | Image                   |
+| Section                | Image                   |
 | ---------------------- | ----------------------- |
 | Dashboard              | ![](attachments/1.jpg)  |
-| Monitoring Screen      | ![](attachments/2.jpg)  |
+| Monitoring             | ![](attachments/2.jpg)  |
 | Task Scheduler         | ![](attachments/3.jpg)  |
 | Transactions           | ![](attachments/4.jpg)  |
-| Profile Screen         | ![](attachments/5.jpg)  |
+| Profile                | ![](attachments/5.jpg)  |
 | Gallery                | ![](attachments/6.jpg)  |
 | Settings               | ![](attachments/7.jpg)  |
 | Appointments           | ![](attachments/8.jpg)  |
@@ -98,7 +80,7 @@ Below are screenshots from the application (located in `/attachments/`):
 | Analytics              | ![](attachments/11.jpg) |
 | Fish Health Check      | ![](attachments/12.jpg) |
 | Feed Calculator        | ![](attachments/13.jpg) |
-| Language Preferences   | ![](attachments/14.jpg) |
+| Language Settings      | ![](attachments/14.jpg) |
 | Login Screen           | ![](attachments/15.jpg) |
 | Registration Screen    | ![](attachments/16.jpg) |
 | Data Logging           | ![](attachments/17.jpg) |
@@ -111,28 +93,25 @@ Below are screenshots from the application (located in `/attachments/`):
 
 ## Version
 
-* **Current Version**: 1.0
+**Current Version:** 1.0
 
 ---
 
 ## Contributing
 
-Contributions are welcome! Please fork the repository and submit pull requests for enhancements or bug fixes.
+We welcome contributions! Fork the repository and submit a pull request for any improvements or fixes.
 
 ---
 
 ## License
 
-This project is licensed under the **MIT License**.
-See the [LICENSE](LICENSE) file for details.
+Licensed under the **MIT License**.
+See the [LICENSE](LICENSE) file for more details.
 
 ---
 
 ## Contact
 
-For support, reach out via the app’s support section or the official website (if available).
+For support, use the in-app support feature or visit the official website (if available).
 
-```
-
-Please make sure the images exist in the `/attachments/` folder as referenced in the markdown file. If you face any further issues with markdown rendering, let me know!
-```
+---
