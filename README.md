@@ -1,6 +1,3 @@
-
----
-
 ````markdown
 # Prani Bondhu
 
@@ -128,6 +125,4 @@ See the [LICENSE](LICENSE) file for details.
 For support, reach out via the app’s support section or the official website (if available).
 
 ```
-
-Let me know if you’d like me to create the actual `LICENSE` file or prepare this as a `README.md`.
 ```
