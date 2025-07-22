@@ -91,7 +91,6 @@ Screenshots of the app (from the `/attachments/` folder) are shown below:
   <img src="attachments/11.jpg" width="225" height="500">
   <img src="attachments/12.jpg" width="225" height="500">
   <img src="attachments/13.jpg" width="225" height="500">
-  <img src="attachments/14.jpg" width="225" height="500">
   <img src="attachments/15.jpg" width="225" height="500">
   <img src="attachments/16.jpg" width="225" height="500">
   <img src="attachments/17.jpg" width="225" height="500">
