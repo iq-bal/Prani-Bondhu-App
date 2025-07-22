@@ -77,7 +77,7 @@
 
 Screenshots of the app (from the `/attachments/` folder) are shown below:
 
-<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<div style="display: flex; flex-wrap: wrap; gap: 40px;">
   <img src="attachments/1.jpg" width="225" height="500">
   <img src="attachments/2.jpg" width="225" height="500">
   <img src="attachments/3.jpg" width="225" height="500">
